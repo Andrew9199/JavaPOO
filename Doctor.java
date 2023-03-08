@@ -1,6 +1,7 @@
 public class Doctor {
     //5.2 Aqui vamos a ir agregando los tributos de la clase Doctor
-    int id;
+    //8.0 Aqui agregamos nuestra primera variable estatica la cual siempre se iniciara en 0
+    static int id = 0;
     String name;
     String speciality;
     //5.3 Agregamos los comportamientos
@@ -11,8 +12,15 @@ public class Doctor {
         coloque el nuevo atributo de la manera adecuada*/
         this.name = name;
         System.out.println("El nombre del doctor es: " + this.name);
+        //8.1 Aun se inicie en 0 cada vez que se cree un doctor se debe aumentar en 1
+        ++id;
     }
     public void showName(){
         System.out.println(name);
+    }
+
+    //Aqui declaramos id sin doctor.id ya que la variable vive en la clase
+    public void showId(){
+        System.out.println("ID doctor: " + id);
     }
 }
