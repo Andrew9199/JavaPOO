@@ -26,7 +26,7 @@ public class Main {
         /*8.8Aqui llamamos el showMenu sin el UIMenu ya que colocamos el import como static, asi tambien no olvidar poner
         la clase showMenu(); como publica*/
         //9.0 En esta clase mas usaremos solo esta cosa
-        showMenu();
+        //showMenu();
 
         //10 Vamos a ver como se puede inicializar una instancia de Doctor
         Doctor Ann = new Doctor("Anahí", "Profesora");
@@ -36,6 +36,9 @@ public class Main {
 
         //12.1 Creación de nueva instancia patient
         Patient patient = new Patient("Alejandra", "alejanda@mail.com");
-
+        patient.setWeight(55.14);
+        System.out.println(patient.getWeight());
+        patient.setPhoneNumber("12355123");
+        System.out.println(patient.getPhoneNumber());
     }
 }
