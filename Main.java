@@ -33,5 +33,9 @@ public class Main {
         //10 Aqui vimos mas que todo la funcion de this. y por que usarlo para que el valor se asigne a la instancia y no salga null
         System.out.println(Ann.name);
         System.out.println(Ann.speciality);
+
+        //12.1 Creación de nueva instancia patient
+        Patient patient = new Patient("Alejandra", "alejanda@mail.com");
+
     }
 }
