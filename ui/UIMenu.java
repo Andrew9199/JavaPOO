@@ -5,6 +5,10 @@ package ui;
 import java.util.Scanner;
 
 public class UIMenu {
+    //9.1 Aqui declaramos los meses de manera estatica para poder acceder a ellos desde cualquier parte del codigo
+    /*9.3 Vamos a dejar el month como una constante utilizando la palabra reservada Final, esta palabra casi siempre va
+    con static pues una constante generalmente se la necesita en todo el programa*/
+    public static final String[] MONTHS = {"Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"};
 
     public static void showMenu(){
         System.out.println("Welcome to My Appointments");
@@ -52,6 +56,10 @@ public class UIMenu {
             switch (response){
                 case 1:
                     System.out.println("::Book an appointment");
+                    //9.2 Aqui ponemos el codigo para que se pongan solo los primeros 3 meses
+                    for (int i = 0; i < 3; i++) {
+                        System.out.println(i + ". " + MONTHS[i]);
+                    }
                     break;
                 case 2:
                     System.out.println("::My appointments");

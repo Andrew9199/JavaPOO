@@ -17,13 +17,15 @@ public class Main {
         //8.4 Aqui probammos que pasaría si le pondriamos al tipo de variable no static lo cual nos traería siempre el 1
         Doctor.id++;
 
-        //8.2 Aqui declaramos otros doctores para ver como se imprimira el id
+        //8.2 Aqui declaramos otros doctores para ver como se imprimiria el id
         Doctor myDoctorAnd = new Doctor("Andrew Williams");
         myDoctorAnd.showId();
         myDoctorAnd.showName();
         System.out.println(myDoctorAnd.id);
+
         /*8.8Aqui llamamos el showMenu sin el UIMenu ya que colocamos el import como static, asi tambien no olvidar poner
         la clase showMenu(); como publica*/
+        //9.0 En esta clase mas usaremos solo esta cosa
         showMenu();
     }
 }
