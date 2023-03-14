@@ -13,8 +13,6 @@ public class Patient{
     public Patient(String name, String email){
         this.name = name;
         this.email = email;
-        this.weight = 54.5;
-        System.out.println(weight + "Kg.");
     }
     public String getName() {
         return name;
@@ -53,7 +51,7 @@ public class Patient{
     public void setBirthday(String birthday) {
         this.birthday = birthday;
     }
-    //Aqui establecemos las reglas del negocio en las clases en donde no se pueden modificar por los usuarios
+    //13 Aqui establecemos las reglas del negocio en las clases en donde no se pueden modificar por los usuarios
     public String getWeight(){
         return this.weight + "Kg.";
     }

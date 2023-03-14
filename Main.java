@@ -1,6 +1,8 @@
 /*8.7 Aqui estamos importando por primera vez una libreria con lo que aprendimos, el static para que las variables vivan
 en la clase y el .* para que se importe todo, creo*/
 import static ui.UIMenu.*;
+
+import java.util.Date;
 public class Main {
     //5.0 Como en todo proyecto de java necesitamos un metodo name para que el proyecto pueda vivir
     public static void main(String[] args){
@@ -9,9 +11,24 @@ public class Main {
         y el metodo constructor lo añade como atributo a la nueva instancia utilizanod el atributo
         this.name = name que usamos en el metodo contructos*/
         Doctor myDoctor = new Doctor("Alejandro Sanchez", "Pediatra");
-        myDoctor.showId();
+        /*myDoctor.showId();
         myDoctor.showName();
-        System.out.println(myDoctor.id);
+        System.out.println(myDoctor.id);*/
+        //16.4 Prueba
+        myDoctor.addAvailableAppointment(new Date(), "4PM");
+        myDoctor.addAvailableAppointment(new Date(), "10AM");
+        myDoctor.addAvailableAppointment(new Date(), "1PM");
+
+        //16.5 Este codigo nos imprimira la lista de ids de los datos, va hasta donde entiendo
+        /*System.out.println(myDoctor.getAvailableAppointments());*/
+
+        //16.6 Aqui usamos un for each para recorrer el codig uno a uno e imprimir lo que nos interesa
+
+        for (Doctor.AvailableAppointment aA : myDoctor.getAvailableAppointments()){
+            System.out.println(aA.getDate() + " " + aA.getTime());
+        }
+
+
 
         //8.3 Aqui vamos a ver que ocure si se aumenta en la clase main, ya que es estatica pues saldrá 3 en el doctor 2
         //8.4 Aqui probammos que pasaría si le pondriamos al tipo de variable no static lo cual nos traería siempre el 1
