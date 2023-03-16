@@ -34,5 +34,16 @@ public class User {
         this.phoneNumber = phoneNumber;
     }
 
+    //21 Esta es la primera sobreescritura del metodo toString
+    /*Aqui vamos a ver como sobreescribimos el metodo toString()
+     * @Override demuestra que la clase no pertenece a esta clase
+     * y el super.toString() que sale por default nos dice que
+     * se esta modificando el metodo de la clase padre.
+     */
+    @Override
+    public String toString() {
+        return "User: " + name + ", Email: " + email + "\nAddress: " + address + 
+        ", Phone: " + phoneNumber;
+    }
     
 }

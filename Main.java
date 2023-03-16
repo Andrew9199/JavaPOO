@@ -48,10 +48,13 @@ public class Main {
         System.out.println(Ann.speciality);*/
 
         //12.1 Creación de nueva instancia patient
-        /*Patient patient = new Patient("Alejandra", "alejanda@mail.com");
+        Patient patient = new Patient("Alejandra", "alejanda@mail.com");
         patient.setWeight(55.14);
         System.out.println(patient.getWeight());
         patient.setPhoneNumber("12355123");
-        System.out.println(patient.getPhoneNumber());*/
+        System.out.println(patient.getPhoneNumber());
+
+        //21.2 Uso de la sobreescritura del metodo toString()
+        System.out.println(patient);
     }
 }
