@@ -1,47 +1,10 @@
 /*8.7 Aqui estamos importando por primera vez una libreria con lo que aprendimos, el static para que las variables vivan
 en la clase y el .* para que se importe todo, creo*/
-import static ui.UIMenu.*;
 
 import java.util.Date;
 public class Main {
-
-    //18
-    public static enum Numero {
-        UNO("One","Huk","Um"),
-        DOS("Two","Iskay","Dois"),
-        TRES("Three","Kinsa","Três"),
-        CUATRO("Four","Tawa","Quatro"),
-        CINCO("Five","Pisqa","Cinco"),
-        SEIS("Six","Soqta","Seis"),
-        SIETE("Seven","Qanchis","Sete"),
-        OCHO("Eight","Pusaq","Oito"),
-        NUEVE("Nine","Isqon","Nove"),
-        DIEZ("Ten","Chunka","Dez");
-
-        private String english;
-        private String quechua;
-        private String portugues;
-
-        private Numero(String e,String q, String p){
-            english = e;
-            quechua = q;
-            portugues = p;
-        }
-
-        public String getEnglish() {
-            return english;
-        }
-
-        public String getQuechua() {
-            return quechua;
-        }
-
-        public String getPortugues() {
-            return portugues;
-        }
-    }
     //5.0 Como en todo proyecto de java necesitamos un metodo name para que el proyecto pueda vivir
-    public static void main(String[] args){
+    public static void main(String[] args) {
         //5.4 Aqui vemos un ejemplo sencillo de como se usan los atributos de una clase modularizada
         /*6.1 Aquí agregamos la funcion de que nosotros le pasamos el parametro
         y el metodo constructor lo añade como atributo a la nueva instancia utilizanod el atributo
@@ -63,18 +26,6 @@ public class Main {
         /*for (Doctor.AvailableAppointment aA : myDoctor.getAvailableAppointments()){
             System.out.println(aA.getDate() + " " + aA.getTime());
         }*/
-
-        
-        //18.1
-        for (int i = 0; i < Numero.values().length; i++) {
-            System.out.println(Numero.values()[i].getQuechua()+ ","+ Numero.values()[i].getEnglish()+ ","+ Numero.values()[i].getPortugues());
-        }
-
-        System.out.println("\nhora en distintos idiomas :D! y con ForEach\n");
-        for (Numero numero: Numero.values()) {
-            System.out.println(numero.getQuechua() +","+ numero.getEnglish() +","+ numero.getPortugues() );
-        }
-    }
 
         //8.3 Aqui vamos a ver que ocure si se aumenta en la clase main, ya que es estatica pues saldrá 3 en el doctor 2
         //8.4 Aqui probammos que pasaría si le pondriamos al tipo de variable no static lo cual nos traería siempre el 1
@@ -104,3 +55,4 @@ public class Main {
         patient.setPhoneNumber("12355123");
         System.out.println(patient.getPhoneNumber());*/
     }
+}

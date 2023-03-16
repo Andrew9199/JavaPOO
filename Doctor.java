@@ -1,21 +1,19 @@
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Doctor {
+public class Doctor extends User{
     //5.2 Aqui vamos a ir agregando los tributos de la clase Doctor
     //8.0 Aqui agregamos nuestra primera variable estatica la cual siempre se iniciara en 0
-    static int id = 0;
-    String name;
+    //20.0 Aqui retiramos los atributos redundantes la clase Doctor dejando el atributo que lo diferencia del paciente
     String speciality;
     //5.3 Agregamos los comportamientos
 
     //6.0 Recreamos el metodo constructor
-    Doctor(String name, String especiality){
-        //8.1 Aun se inicie en 0 cada vez que se cree un doctor se debe aumentar en 1
-        ++id;
+    Doctor(String name, String email, String especiality){
+        //8.1 Aun se inicie en 0 cada vez que se cree un doctor se debe aumentar en 1, se ah eliminado ya que a futuro el id estara en una base de datos
         /*6.1.1 Aqui podemos ver como debemos declarar que la variable para que
         coloque el nuevo atributo de la manera adecuada*/
-        this.name = name;
+        super(name, email);
         this.speciality = especiality;
         System.out.println("El nombre del doctor es: " + this.name);
     }
@@ -25,7 +23,7 @@ public class Doctor {
 
     //Aqui declaramos id sin doctor.id ya que la variable vive en la clase
     public void showId(){
-        System.out.println("ID doctor: " + id);
+        System.out.println("ID doctor: id removido para que a futuro viva en una base de datos" );
     }
 
     //16.1En esta sección creamos el Array que va a guardar nuestras fechas

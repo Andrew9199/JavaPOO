@@ -1,9 +1,6 @@
 //Reto 11
-public class Patient{
-    private String name;
-    private String email;
-    private String address;
-    private String phoneNumber;
+public class Patient extends User{
+    //20.0 Aqui retiramos los atributos redundantes la clase Doctor dejando el atributo que lo diferencia del paciente
     private String birthday;
     private double weight;
     private double height;
@@ -11,40 +8,9 @@ public class Patient{
 
     //12.0 Nota importante, los metodos constructores solo tienen un modificador de acceso, ni void ni nada
     public Patient(String name, String email){
-        this.name = name;
-        this.email = email;
+        super(name, email);
     }
-    public String getName() {
-        return name;
-    }
-    public void setName(String name) {
-        this.name = name;
-    }
-    public String getEmail() {
-        return email;
-    }
-    public void setEmail(String email) {
-        this.email = email;
-    }
-    public String getAddress() {
-        return address;
-    }
-    public void setAddress(String address) {
-        this.address = address;
-    }
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-     //13 Aqui vemos como se asignaria una validacion de datos para el setter y solo se acepte el atributo si cumple con la validación
-    public void setPhoneNumber(String phoneNumber) {
-        if (phoneNumber.length() > 8){
-            System.out.println("El numero telefonico debe tener maximo 8 digitos");
-        } else if (phoneNumber.length() < 8) {
-            System.out.println("El numero telefonico debe tener minimo 8 digitos");
-        } else {
-            this.phoneNumber = phoneNumber;
-        }
-    }
+
     public String getBirthday() {
         return birthday;
     }
