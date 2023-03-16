@@ -1,6 +1,5 @@
 /*8.7 Aqui estamos importando por primera vez una libreria con lo que aprendimos, el static para que las variables vivan
 en la clase y el .* para que se importe todo, creo*/
-
 import java.util.Date;
 public class Main {
     //5.0 Como en todo proyecto de java necesitamos un metodo name para que el proyecto pueda vivir
@@ -9,7 +8,7 @@ public class Main {
         /*6.1 Aquí agregamos la funcion de que nosotros le pasamos el parametro
         y el metodo constructor lo añade como atributo a la nueva instancia utilizanod el atributo
         this.name = name que usamos en el metodo contructos*/
-        Doctor myDoctor = new Doctor("Alejandro Sanchez", "Pediatra");
+        Doctor myDoctor = new Doctor("Alejandro Sanchez","alexis@gmail.com", "Pediatra");
         /*myDoctor.showId();
         myDoctor.showName();
         System.out.println(myDoctor.id);*/

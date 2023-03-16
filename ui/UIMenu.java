@@ -22,7 +22,7 @@ public class UIMenu {
 
             Scanner sc = new Scanner(System.in);
             response = Integer.valueOf(sc.nextLine());
-
+            sc.close();
             switch (response){
                 case 1:
                     System.out.println("Doctor");
