@@ -1,6 +1,8 @@
+package model;
+
 //Reto 11
 public class Patient extends User {
-    // 20.0 Aqui retiramos los atributos redundantes la clase Doctor dejando el
+    // 20.0 Aqui retiramos los atributos redundantes la clase model.Doctor dejando el
     // atributo que lo diferencia del paciente
     private String birthday;
     private double weight;

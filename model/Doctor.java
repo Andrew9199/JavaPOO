@@ -1,15 +1,17 @@
+package model;
+
 import java.util.ArrayList;
 import java.util.Date;
 
 public class Doctor extends User{
-    //5.2 Aqui vamos a ir agregando los tributos de la clase Doctor
+    //5.2 Aqui vamos a ir agregando los tributos de la clase model.Doctor
     //8.0 Aqui agregamos nuestra primera variable estatica la cual siempre se iniciara en 0
-    //20.0 Aqui retiramos los atributos redundantes la clase Doctor dejando el atributo que lo diferencia del paciente
+    //20.0 Aqui retiramos los atributos redundantes la clase model.Doctor dejando el atributo que lo diferencia del paciente
     String speciality;
     //5.3 Agregamos los comportamientos
 
     //6.0 Recreamos el metodo constructor
-    Doctor(String name, String email, String especiality){
+    public Doctor(String name, String email, String especiality){
         //8.1 Aun se inicie en 0 cada vez que se cree un doctor se debe aumentar en 1, se ah eliminado ya que a futuro el id estara en una base de datos
         /*6.1.1 Aqui podemos ver como debemos declarar que la variable para que
         coloque el nuevo atributo de la manera adecuada*/

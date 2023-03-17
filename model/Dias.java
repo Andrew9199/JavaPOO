@@ -1,3 +1,5 @@
+package model;
+
 public class Dias {
 //18 Estes el codigo de la clase 18 que me llevo loco por un par de dias, haber...
 /*18.1 Aqui vemos como declaramos una serie de constantes que estan bajo al
