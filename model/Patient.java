@@ -58,4 +58,9 @@ public class Patient extends User {
         return super.toString() + "\nAge: " + birthday + "\nWeigth: " + getWeight() +
         "\nHeight: " + getHeight() + "\nBlood: " + blood;
     }
+
+    @Override
+    public void ShowUserData() {
+        System.out.println("Paciente \nSu cumpleaños es: " + getBirthday() + "\nSu tipo de sangre es " + getBlood());
+    }
 }

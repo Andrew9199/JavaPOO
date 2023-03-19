@@ -1,7 +1,9 @@
 /*8.7 Aqui estamos importando por primera vez una libreria con lo que aprendimos, el static para que las variables vivan
 en la clase y el .* para que se importe todo, creo*/
 import model.Doctor;
+import model.Nurse;
 import model.Patient;
+import model.User;
 
 import java.util.Date;
 public class Main {
@@ -51,13 +53,27 @@ public class Main {
         System.out.println(Ann.speciality);*/
 
         //12.1 Creación de nueva instancia patient
-        Patient patient = new Patient("Alejandra", "alejanda@mail.com");
+        /*Patient patient = new Patient("Alejandra", "alejanda@mail.com");
         patient.setWeight(55.14);
         System.out.println(patient.getWeight());
         patient.setPhoneNumber("12355123");
         System.out.println(patient.getPhoneNumber());
 
         //21.2 Uso de la sobreescritura del metodo toString()
-        System.out.println(patient);
+        System.out.println(patient);*/
+
+        /*27.2 Aqui veremos la aplicacion de las clases abstractas,
+        veremos que apesar de ser de la misma entidad User van a tomar distintos comportamientos*/
+        //27.3 Primera instanciacion de una entidad Doctor
+        User userDoc = new Doctor("Alex", "alex@alex.com", "Pediatria");
+        userDoc.ShowUserData();
+        //27.3 Primera instanciacion de una entidad Nurse
+        User userNurse = new Nurse("Anita", "anita@anita.com", "General");
+        userNurse.ShowUserData();
+        //27.3 Primera instanciacion de una entidad Patient
+        User userPatient = new Patient("Carlos", "carlos@hotmail.com");
+        userPatient.ShowUserData();
+
+
     }
 }

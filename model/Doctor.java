@@ -10,6 +10,14 @@ public class Doctor extends User{
     String speciality;
     //5.3 Agregamos los comportamientos
 
+    public String getSpeciality() {
+        return speciality;
+    }
+
+    public void setSpeciality(String speciality) {
+        this.speciality = speciality;
+    }
+
     //6.0 Recreamos el metodo constructor
     public Doctor(String name, String email, String especiality){
         //8.1 Aun se inicie en 0 cada vez que se cree un doctor se debe aumentar en 1, se ah eliminado ya que a futuro el id estara en una base de datos
@@ -18,6 +26,7 @@ public class Doctor extends User{
         super(name, email);
         this.speciality = especiality;
         System.out.println("El nombre del doctor es: " + this.name);
+
     }
     public void showName(){
         System.out.println(name);
@@ -39,6 +48,11 @@ public class Doctor extends User{
 
     public ArrayList<AvailableAppointment> getAvailableAppointments(){
         return availableAppointments;
+    }
+
+    @Override
+    public void ShowUserData() {
+        System.out.println("Doctor\nEl nombre del doctor es: " + getName() + "\nSu especialidad es: " + getSpeciality());
     }
 
     //16.0 Aqui vemos como creamos la Clase estatica anidada

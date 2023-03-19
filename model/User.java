@@ -47,5 +47,9 @@ public abstract class User {
         return "model.User: " + name + ", Email: " + email + "\nAddress: " + address +
         ", Phone: " + phoneNumber;
     }
+
+    //27.0 Creacion de nuestro metodo abstracto en User que afectara a Doctor, Nurse y Patient.
+    //27.1 Como este es el unico metodo con la denominacion abstract es el unico obligatorio para todo el que herede de User
+    public abstract void ShowUserData();
     
 }
