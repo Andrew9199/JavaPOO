@@ -4,7 +4,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.logging.SimpleFormatter;
 
 public class Doctor extends User{
     //5.2 Aqui vamos a ir agregando los tributos de la clase model.Doctor
@@ -22,13 +21,13 @@ public class Doctor extends User{
     }
 
     //6.0 Recreamos el metodo constructor
-    public Doctor(String name, String email, String especiality){
+    public Doctor(String name, String email){
         //8.1 Aun se inicie en 0 cada vez que se cree un doctor se debe aumentar en 1, se ah eliminado ya que a futuro el id estara en una base de datos
         /*6.1.1 Aqui podemos ver como debemos declarar que la variable para que
         coloque el nuevo atributo de la manera adecuada*/
         super(name, email);
-        this.speciality = especiality;
-        System.out.println("El nombre del doctor es: " + this.name);
+        // this.speciality = especiality;
+        // System.out.println("El nombre del doctor es: " + this.name);
 
     }
     public void showName(){

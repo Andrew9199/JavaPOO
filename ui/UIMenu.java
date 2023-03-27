@@ -7,6 +7,7 @@ import model.Patient;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import static ui.UIDoctorMenu.showDoctorMenu;
 
 public class UIMenu {
     //9.1 Aqui declaramos los meses de manera estatica para poder acceder a ellos desde cualquier parte del codigo
@@ -28,12 +29,13 @@ public class UIMenu {
 
             Scanner sc = new Scanner(System.in);
             response = Integer.valueOf(sc.nextLine());
-            sc.close();
             switch (response){
                 case 1:
                     System.out.println("Doctor");
                     //Aqui vamos a asignar el tipo de usuario segun que diga el usuario
+                    response = 0;
                     authUser(1);
+                    showDoctorMenu();
                     break;
                 case 2:
                     response = 0;
@@ -60,7 +62,6 @@ public class UIMenu {
 
             Scanner sc = new Scanner(System.in);
             response = Integer.valueOf(sc.nextLine());
-            sc.close();
             switch (response){
                 case 1:
                     System.out.println("::Book an appointment");
@@ -86,9 +87,9 @@ public class UIMenu {
 //32.1 Aquí creamos los Arrays
         //Array de Doctor
         ArrayList<Doctor> doctors = new ArrayList<>();
-        doctors.add(new Doctor("Alejandro Martinez", "alejandra@gmail.com", "Dermatologo"));
-        doctors.add(new Doctor("Roberto Rodriguez", "roberto@gmail.com", "Uncologo"));
-        doctors.add(new Doctor("Rocio Gómez", "Rocio@gmail.com", "Pediatria"));
+        doctors.add(new Doctor("Alejandro Martinez", "alejandra@gmail.com"));
+        doctors.add(new Doctor("Roberto Rodriguez", "roberto@gmail.com"));
+        doctors.add(new Doctor("Rocio Gómez", "Rocio@gmail.com"));
     //Array de Pacient
         ArrayList<Patient> patients = new ArrayList<>();
         patients.add(new Patient("Alexis Sanchez", "alexis@gmail.com"));
@@ -112,6 +113,7 @@ Paciente que sería el usuario logeado*/
                         emailCorrect = true;
                         //Obtener el usuario logeado
                         doctorLogged = d;
+                        UIDoctorMenu.showDoctorMenu();
                     }
                     if (userType == 2){
                         for (Patient p: patients){

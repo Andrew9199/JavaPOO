@@ -37,6 +37,7 @@ el camino que ha tenido cada pedazo de mi codigo*/
 
             switch (response){
                 case 1:
+                    showAddavailableAppointmentsMenu();
                     break;
                 case 2:
                     break;
@@ -75,7 +76,7 @@ el camino que ha tenido cada pedazo de mi codigo*/
                 //1,2,3
                 //33.13 En esta parte asiganaremos el mes seleccionado a una variable mas descriptiva
                 int monthSelected = response;
-                System.out.println(monthSelected + UIMenu.MONTHS[monthSelected]);
+                System.out.println(monthSelected + UIMenu.MONTHS[monthSelected - 1]);
 
                 System.out.println("Insert the date avaible: [dd/mm/yyyy]");
                 String date = sc.nextLine();
