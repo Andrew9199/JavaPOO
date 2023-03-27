@@ -11,7 +11,8 @@ public class Doctor extends User{
     //20.0 Aqui retiramos los atributos redundantes la clase model.Doctor dejando el atributo que lo diferencia del paciente
     String speciality;
     //5.3 Agregamos los comportamientos
-
+    //16.1En esta sección creamos el Array que va a guardar nuestras fechas
+    private ArrayList<AvailableAppointment> availableAppointments = new ArrayList<>();
     public String getSpeciality() {
         return speciality;
     }
@@ -38,9 +39,6 @@ public class Doctor extends User{
     public void showId(){
         System.out.println("ID doctor: id removido para que a futuro viva en una base de datos" );
     }
-
-    //16.1En esta sección creamos el Array que va a guardar nuestras fechas
-    ArrayList<AvailableAppointment> availableAppointments = new ArrayList<>();
 
     //16.2 Esta es la invocación del metodo que declaramos dentro de la clase.
     public void addAvailableAppointment(String date, String time){
@@ -82,12 +80,12 @@ public class Doctor extends User{
         public int getId() {
             return id;
         }
-
-        public Date getDate() {
+//36 Cambio de la ubicacion del String DATE
+        public Date getDate(String DATE) {
             return date;
         }
 //34.11 Sobrecarga del metodo get Date por si necesitamos o queremos que el get date nos transforme de date a format(String)
-        public String getDate(String DATE) {
+        public String getDate() {
             return format.format(date);
         }
 
