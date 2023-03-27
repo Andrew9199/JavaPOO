@@ -18,9 +18,9 @@ public class Main {
         myDoctor.showName();
         System.out.println(myDoctor.id);*/
         //16.4 Prueba
-        myDoctor.addAvailableAppointment(new Date(), "4PM");
-        myDoctor.addAvailableAppointment(new Date(), "10AM");
-        myDoctor.addAvailableAppointment(new Date(), "1PM");
+        myDoctor.addAvailableAppointment(new Date().toString(), "4PM");
+        myDoctor.addAvailableAppointment(new Date().toString(), "10AM");
+        myDoctor.addAvailableAppointment(new Date().toString(), "1PM");
 
         //16.5 Este codigo nos imprimira la lista de ids de los datos, va hasta donde entiendo
         /*System.out.println(myDoctor.getAvailableAppointments());*/

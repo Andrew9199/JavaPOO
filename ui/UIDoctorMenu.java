@@ -1,9 +1,13 @@
 package ui;
 
+import model.Doctor;
+
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class UIDoctorMenu {
-
+//34.12 Ahora vamos a crear un array con las fechas de doctores con fechas disponibles
+    public static ArrayList<Doctor> doctorsAvailableAppointments = new ArrayList<>();
     public static void showDoctorMenu(){
 //33 En esta variable la ponemos para que el ciclo Do while no se rompa hasta que esto cambie
         int response = 0;
@@ -78,9 +82,39 @@ el camino que ha tenido cada pedazo de mi codigo*/
 
                 System.out.println("Your date is: " + date + "\n1. Correct\n2. Chage Date");
                 //33.14 A continuacion veremos como usaremos continue y break, mas bien las pondermos en uso.
+                //34 Empezamos a designar que se hara entre las distintas opciones de doctor
+                int reponseDate = Integer.valueOf(sc.nextLine());
+                //34.1 Uso de continue para que si el usuario quiere volver al menu anterior el ciclo actual se reinicie
+                if (response == 2) continue;
+                //34.2 Por cierto la mayoria de "confirmaciones" se haran con el la variable antecedida de response
+                int responseTime = 0;
+                String time = "";
+                //34.3 aqui iniciamos nuevamente con un ciclo de comprobación de la hora y tal
+                do {
+                    System.out.println("Insert the time available for date: " + date + " [16:00]");
+                    time = sc.nextLine();
+                    System.out.println("Your time is: " + time + "\n1. correct\n2. Change time");
+                    responseTime = Integer.valueOf(sc.nextLine());
+                } while (responseTime
+                == 2);
+                //34.4 Luego de obetnidos los datos de month, date y time le pasamos estos parametros al metodo para agregar la cita
+                UIMenu.doctorLogged.addAvailableAppointment(date, time);
+                //34.17 Aqui ya solo implementamos el metodo para agregar al doctor cuando tiene citas ya
+
             } else if (response == 0) {
                 showDoctorMenu();
             }
         } while (response != 0);
+    }
+
+    private  static void checkDoctorAvailableAppointment(Doctor doctor){
+        /**34.16 este metodo tiene como finalidad poner en un array a todos los doctores con citas en la agenda
+         * para que el doctor entre en el array debe cumplir dos condiciones
+         * 1. el tamano de su agenda (objeto que guarda las citas con sus fechas y horas) debe ser mayor a 0
+         * 2. todavia no debe estar en el array*/
+        if (doctor.getAvailableAppointments().size() > 0
+        && !doctorsAvailableAppointments.contains(doctor)){
+            doctorsAvailableAppointments.add(doctor);
+        }
     }
 }

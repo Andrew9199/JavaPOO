@@ -1,7 +1,10 @@
 package model;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.logging.SimpleFormatter;
 
 public class Doctor extends User{
     //5.2 Aqui vamos a ir agregando los tributos de la clase model.Doctor
@@ -41,7 +44,8 @@ public class Doctor extends User{
     ArrayList<AvailableAppointment> availableAppointments = new ArrayList<>();
 
     //16.2 Esta es la invocación del metodo que declaramos dentro de la clase.
-    public void addAvailableAppointment(Date date, String time){
+    public void addAvailableAppointment(String date, String time){
+        //34.5 Aqui vamos a tranformar el dato date a Sting en esta propia clase para no estar convirtiendolo en una clase no correspondiente
         availableAppointments.add(new AvailableAppointment(date, time));
     }
     //16.3 Finalmente este es el codigo que nos devolveria el Array de las citas ingresadas
@@ -60,9 +64,19 @@ public class Doctor extends User{
         private int id;
         private Date date;
         private String time;
+        //34.6 En esta parte vamos a aprender como cambiar un formato de String a Date, de esta manera es como trabajaremos con fehcas
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
 
-        public AvailableAppointment(Date date, String time){
-            this.date = date;
+        public AvailableAppointment(String date, String time){
+            //34.7 ahora cuando intentemos la transformacion nos dara la opcion de capturar una excepcion para que el programa no se rompa
+            //34.8 En try ponemos las lineas que son vulnerables a errores
+            try {
+                this.date = format.parse(date);
+            }
+            //34.9 y en catch el como vamos a manejar el error
+            catch (ParseException e) {
+                throw new RuntimeException(e);
+            }
             this.time = time;
         }
 
@@ -70,12 +84,16 @@ public class Doctor extends User{
             return id;
         }
 
-        public void setId(int id) {
-            this.id = id;
-        }
-
         public Date getDate() {
             return date;
+        }
+//34.11 Sobrecarga del metodo get Date por si necesitamos o queremos que el get date nos transforme de date a format(String)
+        public String getDate(String DATE) {
+            return format.format(date);
+        }
+
+        public void setId(int id) {
+            this.id = id;
         }
 
         public void setDate(Date date) {
