@@ -1,5 +1,8 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.Date;
+
 //Reto 11
 public class Patient extends User {
     // 20.0 Aqui retiramos los atributos redundantes la clase model.Doctor dejando el
@@ -8,6 +11,30 @@ public class Patient extends User {
     private double weight;
     private double height;
     private String blood;
+
+    //37 Aqui vamos a agregar un map que tiene las citas que va a tener habilitadas el paciente
+    private ArrayList<AppointmentDoctor> appointmentDoctors = new ArrayList<>();
+    private ArrayList<AppointmentDoctor> appointmentNurse = new ArrayList<>();
+    //37 Y tambien generamos los getters y setters
+
+    public ArrayList<AppointmentDoctor> getAppointmentDoctors() {
+        return appointmentDoctors;
+    }
+//37 Y en el caso de doctors le ponemos add en lugar de set y de parametros recibira Doctor doctor, Date date, String time
+    public void addAppointmentDoctors(Doctor doctor, Date date, String time) {
+        AppointmentDoctor appointmentDoctor = new AppointmentDoctor(this, doctor);
+        //Finalmente luego de los ajustes en appointment doctor y que tengamos planteada la fecha de la cita aejcutamos el schedule
+        appointmentDoctor.schedule(date, time);
+        appointmentDoctors.add(appointmentDoctor);
+    }
+
+    public ArrayList<AppointmentDoctor> getAppointmentNurse() {
+        return appointmentNurse;
+    }
+
+    public void setAppointmentNurse(ArrayList<AppointmentDoctor> appointmentNurse) {
+        this.appointmentNurse = appointmentNurse;
+    }
 
     // 12.0 Nota importante, los metodos constructores solo tienen un modificador de
     // acceso, ni void ni nada

@@ -26,6 +26,7 @@ public class UIPatientMenu {
 
             switch (response) {
                 case 1:
+                    showBookAppointmentMenu();
                     break;
                 case 2:
                     break;
@@ -84,9 +85,61 @@ public class UIPatientMenu {
             //Una vez dadas las fechas debemos manejar la respuesta del usuario
             Scanner sc = new Scanner(System.in);
             //Con esto ya sabemos que doctor mostrarle segun la fecha que ah seleccionado
-            int responseDateSelect = Integer.valueOf(sc.nextLine());
+            int responseDateSelected = Integer.valueOf(sc.nextLine());
             //--------Hasta aqui llego la clase 36--------//
+            //--------Aqui empieza la clase 37--------//
+            /**
+             * Vamos a crear otro map con el cual vamos a usar el arbol map para ingresar al dato que queremos que creo
+             * es el nombre del doc*/
+            Map<Integer, Doctor> doctorAvailableSelected = doctors.get(responseDateSelected);
+            //Aqui guardaremos el indice de la fecha y un doctor que a futuro guardara el doctor seleccionado
+            Integer indexDate = 0;
+            Doctor doctorSelected = new Doctor("","");
 
+            //Vamos a recorrer nuestro map con nuetro foreach
+            for (Map.Entry<Integer, Doctor> doc : doctorAvailableSelected.entrySet()) {
+                indexDate = doc.getKey();
+                doctorSelected = doc.getValue();
+            }
+            //Esto se va a descontrolaaaaar
+            /**aqui vemos que empezamos a traer datos, pim pam pum, casi como traer oraciones lo cual si no hubiesemos
+             * aplicado programacion orientada a objetos*/
+            System.out.println(doctorSelected.getName() +
+                    ".Date: " + doctorSelected.getAvailableAppointments().get(indexDate).getDate() +
+                    ".Time: " + doctorSelected.getAvailableAppointments().get(indexDate).getTime());
+            System.out.println("Confirm your appointment: \n1. YES \2. Chage Data");
+            response = Integer.valueOf(sc.nextLine());
+            //37 Finalmente colocamos la logica luego de tener toda esta informacion
+            //37 luego de un chingo de cambios venimos a aplicar esto
+            if (response == 1){
+                UIMenu.patientLogged.addAppointmentDoctors(
+                        doctorSelected,
+                        doctorSelected.getAvailableAppointments().get(indexDate).getDate(null),
+                        doctorSelected.getAvailableAppointments().get(indexDate).getTime()
+                );
+                showPatientMenu();
+            }
         }while (response != 0);
+    }
+    //37 Ahora con la opcion 2 tmb conocida como 2. My appointments
+    private static void showPatientMyAppointments(){
+        int response = 0;
+        do {
+            System.out.println(":: My Appointments");
+            if (UIMenu.patientLogged.getAppointmentDoctors().size() == 0){
+                System.out.println("Don't have appointments");
+                break;
+            }
+
+            for (int i = 0; i < UIMenu.patientLogged.getAppointmentDoctors().size(); i++) {
+                int j = i + 1;
+                System.out.println(j + ". " +
+                        "Date: " + UIMenu.patientLogged.getAppointmentDoctors().get(i).getDate() +
+                        "Time: " + UIMenu.patientLogged.getAppointmentDoctors().get(i).getTime() +
+                        "\n Doctor" + UIMenu.patientLogged.getAppointmentDoctors().get(i).getDoctor().getName());
+            }
+            System.out.println("0. Return");
+        } while (response != 0);
+
     }
 }
