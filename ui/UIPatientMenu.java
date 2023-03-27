@@ -36,7 +36,7 @@ public class UIPatientMenu {
         do {
             System.out.println(":: Book an appointment");
             System.out.println(":: Select date: ");
-            //Aqui empieza algo interesante por lo que usaremos una coleccion llamada map pero eso lo veremos la proxima clase
+            //35 Aqui empieza algo interesante por lo que usaremos una coleccion llamada map pero eso lo veremos la proxima clase
 
         }while (response != 0);
     }
