@@ -3,43 +3,36 @@ package model;
 import java.util.ArrayList;
 import java.util.Date;
 
-
 public class Patient extends User {
-    
     
     private String birthday;
     private double weight;
     private double height;
     private String blood;
 
-    
     private ArrayList<AppointmentDoctor> appointmentDoctors = new ArrayList<>();
-    private ArrayList<AppointmentDoctor> appointmentNurse = new ArrayList<>();
+    private ArrayList<AppointmentNurse> appointmentNurses = new ArrayList<>();
     
-
     public ArrayList<AppointmentDoctor> getAppointmentDoctors() {
         return appointmentDoctors;
     }
 
     public void addAppointmentDoctors(Doctor doctor, Date date, String time) {
         AppointmentDoctor appointmentDoctor = new AppointmentDoctor(this, doctor);
-        
-        appointmentDoctor.schedule(date, time);
+        appointmentDoctor.schedule(date,time);
         appointmentDoctors.add(appointmentDoctor);
     }
 
-    public ArrayList<AppointmentDoctor> getAppointmentNurse() {
-        return appointmentNurse;
+    public ArrayList<AppointmentNurse> getAppointmentNurses() {
+        return appointmentNurses;
     }
 
-    public void setAppointmentNurse(ArrayList<AppointmentDoctor> appointmentNurse) {
-        this.appointmentNurse = appointmentNurse;
+    public void setAppointmentNurses(ArrayList<AppointmentNurse> appointmentNurses) {
+        this.appointmentNurses = appointmentNurses;
     }
 
-    
-    
-    public Patient(String name, String email) {
-        super(name, email);
+    public Patient(String name, String email){
+        super(name,email);
     }
 
     public String getBirthday() {
@@ -56,15 +49,11 @@ public class Patient extends User {
         return this.weight + "Kg.";
     }
 
-    
-    
-    
     public void setWeight(double weight) {
         this.weight = weight;
     }
-
-    public double getHeight() {
-        return height;
+    public String getHeight() {
+        return height + " Mts.";
     }
 
     public void setHeight(double height) {
@@ -79,7 +68,6 @@ public class Patient extends User {
         this.blood = blood;
     }
 
-    
     @Override
     public String toString() {
         return super.toString() + "\nAge: " + birthday + "\nWeigth: " + getWeight() +

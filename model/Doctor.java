@@ -5,14 +5,15 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Doctor extends User{
-    
-    
-    
-    String speciality;
-    
-    
+public class Doctor extends User {    
+
+    private String speciality;    
     private ArrayList<AvailableAppointment> availableAppointments = new ArrayList<>();
+    
+    public Doctor(String name, String email){
+        super(name,email);
+    }
+    
     public String getSpeciality() {
         return speciality;
     }
@@ -22,19 +23,16 @@ public class Doctor extends User{
     }
 
     
-    public Doctor(String name, String email){
-        super(name, email);
-    }
     public void showName(){
-        System.out.println(name);
+        System.out.println(getName());
     }
     public void showId(){
         System.out.println("ID doctor: id removido para que a futuro viva en una base de datos" );
     }
     public void addAvailableAppointment(String date, String time){
-        
-        availableAppointments.add(new AvailableAppointment(date, time));
+        availableAppointments.add(new Doctor.AvailableAppointment(date,time));
     }
+    
     public ArrayList<AvailableAppointment> getAvailableAppointments(){
         return availableAppointments;
     }
@@ -48,19 +46,14 @@ public class Doctor extends User{
     public static class AvailableAppointment{
         private int id;
         private Date date;
-        private String time;
-        
+        private String time;   
         SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
 
-        public AvailableAppointment(String date, String time){
-            
-            
+        public AvailableAppointment(String date, String time) {
             try {
                 this.date = format.parse(date);
-            }
-            
-            catch (ParseException e) {
-                throw new RuntimeException(e);
+            } catch (ParseException e) {
+                e.printStackTrace();
             }
             this.time = time;
         }
@@ -93,6 +86,9 @@ public class Doctor extends User{
             this.time = time;
         }
 
-        
+        @Override
+        public String toString() {
+            return "Available Appointments \nDate: " +date+ "\nTime: " + time;
+        }
     }
 }

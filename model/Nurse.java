@@ -1,12 +1,11 @@
 package model;
 
-public class Nurse extends User {
+public class Nurse extends User{
 
     private String speciality;
 
-    public Nurse(String name, String email, String speciality) {
+    public Nurse(String name, String email) {
         super(name, email);
-        this.speciality = speciality;
     }
 
     public String getSpeciality() {

@@ -1,7 +1,5 @@
 package ui;
 
-import ui.UIMenu.*;
-
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.Scanner;
@@ -13,10 +11,8 @@ public class UIPatientMenu {
     public static void showPatientMenu(){
         int response = 0;
         do {
-            
-            System.out.println("/n/n");
-            System.out.println("Patient");
-            System.out.println("Welcome: " + UIMenu.patientLogged);
+            System.out.println("\nPatient");
+            System.out.println("Welcome: " + UIMenu.patientLogged.getName());
             System.out.println("1. Book an appointment");
             System.out.println("2. My appointments");
             System.out.println("0. Logout");
@@ -29,64 +25,54 @@ public class UIPatientMenu {
                     showBookAppointmentMenu();
                     break;
                 case 2:
+                showPatientMyAppointments();
                     break;
                 case 0:
                     UIMenu.showMenu();
                     break;
             }
-        } while (response != 0);
+
+
+        }while (response!=0);
     }
     private static void showBookAppointmentMenu(){
         int response = 0;
         do {
             System.out.println(":: Book an appointment");
             System.out.println(":: Select date: ");
-            
-            
-            
-            
-            
-                
-                
-            
-            
             Map<Integer, Map<Integer, Doctor>> doctors = new TreeMap<>();
             int k = 0;
             for (int i = 0; i < UIDoctorMenu.doctorsAvailableAppointments.size(); i++) {
                 ArrayList<Doctor.AvailableAppointment> availableAppointments
                         = UIDoctorMenu.doctorsAvailableAppointments.get(i).getAvailableAppointments();
                 
-                Map<Integer, Doctor> doctorAppointments = new TreeMap<>();
+                Map<Integer, Doctor>  doctorAppointments = new TreeMap<>();
                 
                 for (int j = 0; j < availableAppointments.size(); j++) {
                     k++; 
                     System.out.println(k + ". " + availableAppointments.get(j).getDate());
-                    
-                    
                     doctorAppointments.put(Integer.valueOf(j), UIDoctorMenu.doctorsAvailableAppointments.get(i));
                     
-                    doctors.put(Integer.valueOf(k), doctorAppointments);
-                    
+                    doctors.put(Integer.valueOf(k), doctorAppointments); 
                 }
             }
-            
             Scanner sc = new Scanner(System.in);
-            
             int responseDateSelected = Integer.valueOf(sc.nextLine());
             Map<Integer, Doctor> doctorAvailableSelected = doctors.get(responseDateSelected);
-            
             Integer indexDate = 0;
             Doctor doctorSelected = new Doctor("","");
 
-            
-            for (Map.Entry<Integer, Doctor> doc : doctorAvailableSelected.entrySet()) {
+            for (Map.Entry<Integer, Doctor> doc :doctorAvailableSelected.entrySet()) {
                 indexDate = doc.getKey();
                 doctorSelected = doc.getValue();
             }
+
             System.out.println(doctorSelected.getName() +
-                    ".Date: " + doctorSelected.getAvailableAppointments().get(indexDate).getDate() +
-                    ".Time: " + doctorSelected.getAvailableAppointments().get(indexDate).getTime());
-            System.out.println("Confirm your appointment: \n1. YES \2. Chage Data");
+                    ". Date: " + 
+                    doctorSelected.getAvailableAppointments().get(indexDate).getDate() +
+                    ". Time: " + 
+                    doctorSelected.getAvailableAppointments().get(indexDate).getTime());
+            System.out.println("Confirm your appointment: \n1. YES \n2. Chage Data");
             response = Integer.valueOf(sc.nextLine());
             
             
@@ -96,15 +82,18 @@ public class UIPatientMenu {
                         doctorSelected.getAvailableAppointments().get(indexDate).getDate(null),
                         doctorSelected.getAvailableAppointments().get(indexDate).getTime()
                 );
+                /*Aqui algo interesante, no se tiene que poner que pase algo si se responde 2 
+                ya que el while se encargaria de repetir el bucle hasta que la respuesta sea 
+                1 o 0*/
                 showPatientMenu();
             }
-        }while (response != 0);
+        }while (response!= 0);
     }
     
     private static void showPatientMyAppointments(){
         int response = 0;
         do {
-            System.out.println(":: My Appointments");
+            System.out.println("::My Appointments");
             if (UIMenu.patientLogged.getAppointmentDoctors().size() == 0){
                 System.out.println("Don't have appointments");
                 break;
@@ -117,8 +106,9 @@ public class UIPatientMenu {
                         "Time: " + UIMenu.patientLogged.getAppointmentDoctors().get(i).getTime() +
                         "\n Doctor" + UIMenu.patientLogged.getAppointmentDoctors().get(i).getDoctor().getName());
             }
-            System.out.println("0. Return");
+            System.out.println("0. Ok\nCualquier otra cosa para que vuelva a salir esto");
+            Scanner sc = new Scanner(System.in);
+            response = Integer.valueOf(sc.nextLine());
         } while (response != 0);
-
     }
 }
