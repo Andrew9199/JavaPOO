@@ -35,21 +35,14 @@ public abstract class User {
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
-
-    //21 Esta es la primera sobreescritura del metodo toString
-    /*Aqui vamos a ver como sobreescribimos el metodo toString()
-     * @Override demuestra que la clase no pertenece a esta clase
-     * y el super.toString() que sale por default nos dice que
-     * se esta modificando el metodo de la clase padre.
-     */
     @Override
     public String toString() {
         return "model.User: " + name + ", Email: " + email + "\nAddress: " + address +
         ", Phone: " + phoneNumber;
     }
 
-    //27.0 Creacion de nuestro metodo abstracto en User que afectara a Doctor, Nurse y Patient.
-    //27.1 Como este es el unico metodo con la denominacion abstract es el unico obligatorio para todo el que herede de User
+    
+    
     public abstract void ShowUserData();
     
 }

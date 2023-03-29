@@ -48,7 +48,7 @@ public class AppointmentNurse implements  ISchedulable{
     public void setTime(String time) {
         this.time = time;
     }
-//24 Esta es la implementacion obligatoria del implemento
+
     @Override
     public void schedule(Date date, String time) {
 
